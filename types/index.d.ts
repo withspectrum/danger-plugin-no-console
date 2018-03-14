@@ -1,1 +1,1 @@
-export default function noConsole(): void
+export default function noConsole(options?: { whitelist: string[] }): void
