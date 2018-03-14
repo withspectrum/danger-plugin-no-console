@@ -18,9 +18,10 @@ At a glance:
 
 ```js
 // dangerfile.js
+import { schedule } from 'danger'
 import noConsole from 'danger-plugin-no-console'
 
-// Note: You need to use schedule() because noConsole does some asynchronous things under the hood
+// Note: You need to use schedule()
 schedule(noConsole())
 ```
 
