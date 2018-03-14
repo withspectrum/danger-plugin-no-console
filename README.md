@@ -25,6 +25,25 @@ import noConsole from 'danger-plugin-no-console'
 schedule(noConsole())
 ```
 
+### Output example
+
+<table>
+  <thead>
+    <tr>
+      <th width="50"></th>
+      <th width="100%" data-danger-table="true">Fails</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td>⛔️</td>
+      <td>
+
+  1 console statement(s) left in src/add.js.
+  </td>
+    </tr>
+  </tbody>
+</table>
+
 ### Options
 
 #### `whitelist`
