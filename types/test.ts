@@ -1,0 +1,3 @@
+import noConsole from './'
+
+noConsole()
