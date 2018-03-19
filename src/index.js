@@ -1,5 +1,6 @@
 const PATTERN = /console\.(log|error|warn|info)/
 const GLOBAL_PATTERN = new RegExp(PATTERN.source, 'g')
+const JS_FILE = /\.(js|ts)x?$/i
 
 /**
  * Danger plugin to prevent merging code that still has `console.log`s inside it.
@@ -11,7 +12,9 @@ export default async function noConsole(options = {}) {
       '[danger-plugin-no-console] whitelist option has to be an array.',
     )
 
-  const files = danger.git.modified_files.concat(danger.git.created_files)
+  const files = danger.git.modified_files
+    .concat(danger.git.created_files)
+    .filter(file => JS_FILE.test(file))
   const contents = await Promise.all(
     files.map(file =>
       danger.github.utils.fileContents(file).then(content => ({
