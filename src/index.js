@@ -24,9 +24,11 @@ export default async function noConsole(options = {}) {
   contents.forEach(({ file, content }) => {
     let matches = content.match(GLOBAL_PATTERN)
     if (!matches) return
-    matches = matches.filter(
-      match => !whitelist.includes(PATTERN.exec(match)[1]),
-    )
+    matches = matches.filter(match => {
+      const singleMatch = PATTERN.exec(match)
+      if (!singleMatch || singleMatch.length === 0) return false
+      return !whitelist.includes(singleMatch[1])
+    })
     if (matches.length === 0) return
 
     fail(`${matches.length} console statement(s) left in ${file}.`)
