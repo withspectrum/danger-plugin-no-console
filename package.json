@@ -52,7 +52,7 @@
     "validate-commit-msg": "^2.12.1"
   },
   "optionalDependencies": {
-    "esdoc": "^0.5.2"
+    "esdoc": "^1.1.0"
   },
   "config": {
     "commitizen": {
