@@ -39,7 +39,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-jest": "^20.0.1",
-    "babel-preset-env": "^1.4.0",
+    "babel-preset-env": "^1.7.0",
     "typings-tester": "^0.2.2",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.0.0",
