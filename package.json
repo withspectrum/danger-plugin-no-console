@@ -41,7 +41,7 @@
     "babel-jest": "^20.0.1",
     "babel-preset-env": "^1.4.0",
     "typings-tester": "^0.2.2",
-    "commitizen": "^2.9.6",
+    "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.0.0",
     "husky": "^0.13.3",
     "jest": "^20.0.1",
