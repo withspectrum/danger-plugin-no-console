@@ -17,6 +17,10 @@ global.danger = {
   git: {
     modified_files: [fileNames[0], fileNames[1]],
     created_files: [fileNames[2], fileNames[3]],
+    diffForFile: file =>
+      Promise.resolve({
+        added: files[file],
+      }),
   },
   github: {
     utils: {
