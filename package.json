@@ -46,7 +46,7 @@
     "husky": "^0.13.3",
     "jest": "^20.0.1",
     "lint-staged": "^3.4.1",
-    "prettier": "^1.16.1",
+    "prettier": "^1.16.4",
     "semantic-release": "^6.3.6",
     "typescript": "^2.9.2",
     "validate-commit-msg": "^2.12.1"
