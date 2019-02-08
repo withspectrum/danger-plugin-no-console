@@ -54,6 +54,14 @@ describe('noConsole()', () => {
   it('should handle multiple console statements in a file', async () => {
     await noConsole({ whitelist: ['error', 'warn', 'log'] })
     expect(global.fail).toHaveBeenCalledTimes(1)
-    expect(global.fail.mock.calls[0][0].startsWith(2))
+    expect(global.fail.mock.calls[0][0].startsWith(10))
+  })
+
+  it('should call the given callback with the collected result', async () => {
+    const callback = jest.fn()
+    await noConsole({ callback })
+    expect(callback).toHaveBeenCalledTimes(3)
+    expect(callback.mock.calls[0][1]).toEqual(['console.error'])
+    expect(callback.mock.calls[0][0]).toEqual('src/error.js')
   })
 })

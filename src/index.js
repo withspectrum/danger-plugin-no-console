@@ -15,14 +15,23 @@ const findConsole = (content, whitelist) => {
   return matches
 }
 
+const defaultCallback = (file, matches) =>
+  fail(`${matches.length} console statement(s) added in ${file}.`)
+
 /**
  * Danger plugin to prevent merging code that still has `console.log`s inside it.
  */
 export default async function noConsole(options = {}) {
   const whitelist = options.whitelist || []
+  const callback = options.callback || defaultCallback
   if (!Array.isArray(whitelist))
     throw new Error(
       '[danger-plugin-no-console] whitelist option has to be an array.',
+    )
+
+  if (typeof callback !== 'function')
+    throw new Error(
+      '[danger-plugin-no-console] callback option has to be an function.',
     )
 
   const diffs = danger.git.created_files
@@ -43,6 +52,6 @@ export default async function noConsole(options = {}) {
       const matches = findConsole(diff.added, whitelist)
       if (matches.length === 0) return
 
-      fail(`${matches.length} console statement(s) added in ${file}.`)
+      callback(file, matches)
     })
 }
